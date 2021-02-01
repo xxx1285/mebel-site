@@ -113,7 +113,7 @@
 
 		appendBtnTop: function() {
 
-			$("body").append('<div class="btn-top"><svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="img/sprite.svg#arrow-right"></use></svg></div>');
+			$("body").append('<div class="btn-top"><svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="/css/svg/sprite.svg#arrow-right"></use></svg></div>');
 
 		},
 
@@ -439,112 +439,6 @@
 
 		},
 
-		//=== Clock count down ===\\
-		clockCountDown: function() {
-
-			if($("#countdown").length) {
-				this.clock("countdown", $("#countdown").attr("data-dedline"));
-			}
-
-		},
-		getTimeRemaining: function(endtime) {
-
-			var t = Date.parse(endtime) - Date.parse(new Date()),
-				seconds = Math.floor((t / 1000) % 60),
-				minutes = Math.floor((t / 1000 / 60) % 60),
-				hours = Math.floor((t / (1000 * 60 * 60)) % 24),
-				days = Math.floor(t / (1000 * 60 * 60 * 24));
-
-			return {
-				total: t,
-				days: days,
-				hours: hours,
-				minutes: minutes,
-				seconds: seconds
-			};
-
-		},
-		clock: function(id, endtime) {
-
-			var clock = document.getElementById(id),
-				daysSpan = clock.querySelector(".days"),
-				hoursSpan = clock.querySelector(".hours"),
-				minutesSpan = clock.querySelector(".minutes"),
-				secondsSpan = clock.querySelector(".seconds");
-
-			function updateClock() {
-				var t = app.getTimeRemaining(endtime);
-
-				if (t.total <= 0) {
-					document.getElementById("countdown").className = "hidden";
-					document.getElementById("deadline-message").className = "visible";
-					clearInterval(timeinterval);
-					return true;
-				}
-
-				daysSpan.innerHTML = t.days;
-				hoursSpan.innerHTML = ("0" + t.hours).slice(-2);
-				minutesSpan.innerHTML = ("0" + t.minutes).slice(-2);
-				secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
-			}
-
-			updateClock();
-			var timeinterval = setInterval(updateClock, 1000);
-
-		},
-
-		//=== Custom alert ===\\
-		customAlert: function(text, duration, alertInfo) {
-
-			var alerts = $(".alerts"),
-				body = $("body"),
-				alertClass = "",
-				alertIco = "info";
-			
-			if (!alerts.length) {
-				body.append('<div class="alerts"></div>');
-			}
-			$(".alert").remove();
-
-			if (alertInfo === "success") {
-				alertClass = "alert-success";
-				alertIco = "check";
-			} else if (alertInfo === "danger") {
-				alertClass = "alert-danger";
-				alertIco = "error";
-			} else if (alertInfo === "warning") {
-				alertClass = "alert-warning";
-				alertIco = "warning";
-			} else if (alertInfo == "default") {
-				alertClass = "alert-default";
-				alertIco = "info";
-			}
-
-			if (!$("." + alertClass + "").length) {
-				$(".alerts").append(
-				'<div class="alert ' +
-					alertClass +
-					'" data-duration-hide="' +
-					duration +
-					'"> <div class="alert-ico"> <i class="material-icons md-22">' +
-					alertIco +
-					'</i> </div> <div class="alert-text">' +
-					text +
-					"</div> </div>"
-				);
-
-				setTimeout(function() {
-					$("." + alertClass + "").remove();
-				}, duration);
-			}
-
-			$(document).on("click", ".alert-close", function() {
-				$(this)
-				.closest(".alert")
-				.remove();
-			});
-
-		},
 
 		//=== Plugins ===\\
 
@@ -1132,38 +1026,6 @@
 
 		},
 
-		//=== detect IE ===\\
-		detectIE: function() {
-
-			if(this.detectIECheck()) {
-				var body = document.querySelector("body"),
-					msg = 'Unfortunately, the browser Internet Explorer you use is outdated and cannot display the site normally. <br> Please open the site in another browser';
-				body.classList.add("overflow-hidden");
-				body.innerHTML = '<div class="ie-browser"><div class="ie-browser-tr"><div class="ie-browser-td">'+ msg +'</div></div></div>';
-			}
-
-		},
-		detectIECheck: function() {
-
-			var ua = window.navigator.userAgent;
-			  
-			var msie = ua.indexOf('MSIE ');
-			if (msie > 0) {
-				// IE 10 or older => return version number
-				return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
-			}
-			  
-			var trident = ua.indexOf('Trident/');
-			if (trident > 0) {
-				// IE 11 => return version number
-				var rv = ua.indexOf('rv:');
-				return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
-			}
-			  
-			// other browser
-			return false;
-
-		}
 		
 	}
  
