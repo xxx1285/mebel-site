@@ -1,5 +1,214 @@
-.container-fluid {max-width: 1600px;}
-.header .logo svg{display: block; max-width: 200px; max-height: 40px;}
+.container-fluid {
+  max-width: 1600px;
+}
 
-/** Slider***/
+.header .logo svg {
+  display: block;
+  max-width: 200px;
+  max-height: 40px;
+}
 
+/*==================== Slider=====================================*/
+
+@media screen and (min-width: 750px){
+.container-slider {
+  max-width: 1920px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+}
+.hero-carousel {
+  margin-bottom: 80px;
+  background: #FAFAFA url('/img/intro-img1.jpg');
+  background-size: cover;
+}
+
+.hero-carousel__cell {
+  width: 100%;
+  height: auto;
+  color: white;
+  background: #ED2;
+  background: #EFCE36;
+  /* match gif */
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.hero-carousel__cell__content {
+  padding: 20px 60px 0;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero-carousel h1 {
+  font-size: 3.2rem;
+  line-height: 1.0;
+  margin: 0;
+  padding-top: 40px;
+}
+
+.hero-carousel .tagline {
+  font-size: 1.4rem;
+  line-height: 1.0;
+  margin: 0 0 0.5rem;
+  color: #444;
+}
+
+.hero-illustration {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.hero-carousel__cell--2 {
+  background: #8C8;
+}
+
+.slogan {
+  line-height: 1.2;
+  margin: 0;
+}
+
+.slogan--easy,
+.slogan--fun {
+  font-size: 2.2rem;
+  line-height: 1.1;
+}
+
+.slogan--tagline {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.feature-list {
+  font-size: 1.8rem;
+  list-style: none;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+
+.feature-list li {
+  margin-bottom: 10px;
+}
+
+.hero-carousel__cell--3 {
+  background: #E90;
+}
+
+.hero-carousel__cell--4 {
+  background: #E5A;
+}
+
+.by-line {
+  line-height: 1.2;
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.by-line--made {
+  padding-top: 20px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+@media screen and (max-width: 500px) {
+
+  /* hide first cell content on small devices */
+  .hero-carousel h1,
+  .hero-carousel .tagline,
+  .hero-carousel .gh-button {
+    display: none;
+  }
+
+}
+
+@media screen and (min-width: 500px) {
+  .hero-carousel__cell--1 .hero-carousel__cell__content {
+    padding-right: 260px;
+  }
+
+  .hero-illustration {
+    position: absolute;
+    right: 60px;
+    top: 20px;
+  }
+}
+
+/* ---- large device styles ---- */
+
+@media screen and (min-width: 768px) {
+
+  .hero-carousel__cell {
+    height: 440px;
+  }
+
+  .hero-carousel__cell__content {
+    padding-top: 40px;
+  }
+
+  .hero-carousel h1 {
+    font-size: 5.8rem;
+  }
+
+  .hero-carousel .tagline {
+    font-size: 2.1rem;
+  }
+
+  .hero-illustration {
+    top: 80px;
+  }
+
+  .slogan--easy,
+  .slogan--fun {
+    font-size: 4.8rem;
+  }
+
+  .slogan--tagline {
+    margin-top: 20px;
+    font-size: 2.4rem;
+  }
+
+  .feature-list {
+    font-size: 3.1rem;
+  }
+
+  .feature-list li {
+    margin-bottom: 20px;
+  }
+
+  .by-line {
+    font-size: 3.1rem;
+  }
+
+  .by-line--made {
+    padding-top: 40px;
+    margin-bottom: 20px;
+  }
+
+}
+
+@media screen and (min-width: 960px) {
+
+  .hero-carousel__cell--1 .hero-carousel__cell__content {
+    padding-right: 400px;
+  }
+
+  .hero-carousel h1 {
+    font-size: 7.8rem;
+  }
+
+  .hero-carousel .tagline {
+    margin-bottom: 1.0rem;
+  }
+
+  .hero-illustration {
+    max-width: 400px;
+    top: 20px
+  }
+
+}
