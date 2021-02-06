@@ -10,14 +10,13 @@
 
 /*==================== Slider=====================================*/
 
-@media screen and (min-width: 750px){
 .container-slider {
   max-width: 1920px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
 }
-}
+
 .hero-carousel {
   margin-bottom: 80px;
   background: #FAFAFA url('/img/intro-img1.jpg');
