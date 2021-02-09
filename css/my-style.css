@@ -19,7 +19,7 @@
 
 .hero-carousel {
   margin-bottom: 80px;
-  background: #FAFAFA url('/img/intro-img1.jpg');
+  background: #FAFAFA;
   background-size: cover;
 }
 
